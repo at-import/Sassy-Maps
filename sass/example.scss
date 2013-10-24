@@ -1,1 +1,7 @@
 @import "sassy-maps";
+
+$map: (400: "value", "key2": "value2");
+
+@debug map-get($map, 400);
+
+$map: map-set($map, 'key2', 'value3');
