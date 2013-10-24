@@ -1,0 +1,90 @@
+#########################
+## Extension Information
+##
+## This information is the core information for your Compass extension
+#########################
+extension:
+  name: Sassy Maps
+  authors: Sam Richard
+  authorEmails: sam@snug.ug
+  description: A long description of this awesome compass extension
+  summary: A short summary of this awesome compass extension
+  homepage: https://github.com/Snugug/Sassy-Maps
+  # See http://choosealicense.com/licenses/ to help choose a license that fits your project
+  license: MIT
+
+#########################
+## Source Files
+##
+## The main Sass files for your project.
+## Default setup allows for `@import "sassy-maps";` as well as `@import "sassy-maps/partial";
+#########################
+sass:
+  - '_sassy-maps.scss'
+  - 'sassy-maps/**/*'
+
+#########################
+## Templates
+##
+## Templates allow you to install and initialize assets into a project.
+## The `project` template allows for `compass create {project} -r sassy-maps --using sassy-maps` as well as `compass install sassy-maps`
+## Additional templates can be used by appending their name to `sassy-maps`, e.g. `compass install sassy-maps/examples`
+##
+## Images, JS, Fonts, and Sass are relative to their
+#########################
+templates:
+  project:
+    images:
+      - '**/*'
+      - '!examples/**/*'
+    js:
+      - '**/*'
+      - '!examples/**/*'
+    fonts:
+      - '**/*'
+      - '!examples/**/*'
+  examples:
+    images:
+      - 'examples/**/*'
+    js:
+      - 'examples/**/*'
+    fonts:
+      - 'examples/**/*'
+
+#########################
+## Compass Dependencies
+##
+## Include both the name and version number.
+#########################
+dependencies:
+  sass: '>=3.2.3'
+  compass: '>=0.12.1'
+
+#########################
+## Development Options
+#########################
+server:
+  # Setting hostname to '*' will make the server accessible to your local network and enable remote debugging
+  hostname: 'localhost'
+
+#########################
+## Versioning
+#########################
+bump:
+  # Commit your files to Git after your bump
+  commit: false
+  # What files to commit. -a for all files
+  files:
+    - -a
+  # Create a Git tag after your bump
+  tag: false
+  # Push changes to Git upstream after your bump
+  push: false
+
+#########################
+## Git Options
+#########################
+git:
+  # If you use grunt build --commit, this will be git commit message used
+  defaultCommit: Production build and commit
+  deployUpstream: origin

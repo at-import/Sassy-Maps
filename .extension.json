@@ -1,0 +1,17 @@
+{
+  "extension": {
+    "sass": [
+      "_sassy-maps.scss",
+      "sassy-maps/**/*"
+    ],
+    "images": [
+      "**"
+    ],
+    "js": [
+      "**"
+    ],
+    "fonts": [
+      "**"
+    ]
+  }
+}
