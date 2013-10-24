@@ -11,9 +11,9 @@ Sassy Maps aims to add a variety of functions and mixins aimed at helping you wo
 
 Sassy Maps is a Compass extension, so make sure you have so make sure you have [Sass and Compass installed](http://compass-style.org/install/). Some features may not be available if you are not using the Ruby compiler to compile your Sass, including this extension totally breaking.
 
-*The minimum version of Sass required is* **Sass 3.2.0**
+*The minimum version of Sass required is* **Sass 3.3.0.rc.1**
 
-*The minimum version of Compass required is* **Compass 0.12.0**
+*The minimum version of Compass required is* **Compass 0.13.alpha.10**
 
 If the compiler you are using is not compatible with the above minimum versions, it will not compile correctly.
 
