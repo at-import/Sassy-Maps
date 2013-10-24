@@ -10,6 +10,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "components",
     "test",
     "tests",
     "Gemfile",
@@ -17,6 +18,8 @@
     "Gruntfile.js",
     "examples",
     "images",
+    "fonts",
+    "js",
     "package.json",
     "config.*",
     "*.gem"
