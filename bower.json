@@ -17,6 +17,7 @@
     "Gemfile.lock",
     "Gruntfile.js",
     "examples",
+    "sass/example.scss",
     "images",
     "fonts",
     "js",
