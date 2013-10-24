@@ -72,14 +72,14 @@ server:
 #########################
 bump:
   # Commit your files to Git after your bump
-  commit: false
+  commit: true
   # What files to commit. -a for all files
   files:
     - -a
   # Create a Git tag after your bump
-  tag: false
+  tag: true
   # Push changes to Git upstream after your bump
-  push: false
+  push: true
 
 #########################
 ## Git Options
