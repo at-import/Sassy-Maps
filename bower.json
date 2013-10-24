@@ -4,7 +4,7 @@
   "authors": [
     "Sam Richard <snugug@gmail.com>"
   ],
-  "main": "sass/_sassy-maps.scss"
+  "main": "sass/_sassy-maps.scss",
   "devDependencies": {},
   "ignore": [
     "**/.*",
