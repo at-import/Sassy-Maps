@@ -29,7 +29,7 @@ The preferred way to install and use Sassy Maps is through Bundler. To do so, ad
 
 ```ruby
 gem "sass", "~>3.3.0.rc.2"
-gem "compass", "~>1.0.0.alpha.13	"
+gem "compass", "~>1.0.0.alpha.13"
 gem "sassy-maps", "~>0.2.0"
 ```
 
