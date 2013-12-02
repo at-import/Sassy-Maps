@@ -7,8 +7,8 @@ extension:
   name: Sassy Maps
   authors: Sam Richard
   authorEmails: sam@snug.ug
-  description: A long description of this awesome compass extension
-  summary: A short summary of this awesome compass extension
+  description: Map helper functions for Sass 3.3 Maps including get-deep and set/set-deep
+  summary: Map helper functions for Sass 3.3 Maps
   homepage: https://github.com/Snugug/Sassy-Maps
   # See http://choosealicense.com/licenses/ to help choose a license that fits your project
   license: MIT
