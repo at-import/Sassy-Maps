@@ -5,8 +5,8 @@ node_modules
 .compass/lib
 .compass/stylesheets
 .compass/templates
+.compass/sassy-maps.gemspec
 Gemfile
 Gemfile.lock
 export
 *.gem
-
