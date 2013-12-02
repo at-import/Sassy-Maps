@@ -11,7 +11,7 @@ Sassy Maps adds a variety of functions aimed at helping you work with Sass 3.3 m
 
 ## Requirements
 
-Sassy Maps is a Compass extension, so you're going to need both Sass and Compass installed. If you do not already have them installed, please read [Installing Sass and Compass Across All Platforms](http://snugug.com/musings/installing-sass-and-compass-across-all-platform). Breakpoint 2.2.x requires *Sass 3.3.0.rc.2* and *Compass 1.0.0.alpha.13* or higher.
+Sassy Maps is a Compass extension, so you're going to need both Sass and Compass installed. If you do not already have them installed, please read [Installing Sass and Compass Across All Platforms](http://snugug.com/musings/installing-sass-and-compass-across-all-platform). Sassy Maps 0.2.x requires *Sass 3.3.0.rc.2* and *Compass 1.0.0.alpha.13* or higher.
 
 **It is HIGHLY RECOMMENDED that you run all Sass and Compass commands through [Bundler](http://bundler.io/)**
 
