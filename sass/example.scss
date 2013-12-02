@@ -1,7 +1,20 @@
 @import "sassy-maps";
 
-$map: (400: "value", "key2": "value2");
-
-@debug map-get($map, 400);
+$map: (400: "value", "key2": "value2", "key3": ("foo": "bar", "baz": ("waldo": "qux"), 'steve': 'perry'), "bob": "george");
+// @debug $map;
+$string: inspect($map);
+// @debug type-of($string);
+// @debug $string;
 
 $map: map-set($map, 'key2', 'value3');
+// @debug $map;
+
+@debug map-get-deep($map, 'key4', 'nine', 'eight');
+
+@debug $map;
+$map: map-set-deep($map, ('key3' 'baz' 'waldo'), "molly");
+$map: map-set-deep($map, ('key3' 'baz' 'qux'), 'quark');
+$map: map-set-deep($map, ('key3' 'jedi' 'vader'), 'red');
+$map: map-set-deep($map, ('key3' 'jedi' 'luke'), 'green');
+$map: map-set-deep($map, ('key4' 'nine' 'eight'), 'seven');
+@debug $map;
