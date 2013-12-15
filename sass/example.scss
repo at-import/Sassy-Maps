@@ -18,3 +18,10 @@ $map: map-set-deep($map, ('key3' 'jedi' 'vader'), 'red');
 $map: map-set-deep($map, ('key3' 'jedi' 'luke'), 'green');
 $map: map-set-deep($map, ('key4' 'nine' 'eight'), 'seven');
 @debug $map;
+
+@import "memo";
+
+@include memo-set(singularity, 2 .75 split, 50%);
+@include memo-set(singularity, 2 .75 split, 75%);
+
+@debug memo-get(singularity, 2 .75 split);
