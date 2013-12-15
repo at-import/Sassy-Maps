@@ -24,5 +24,8 @@ $Memoization-Table: () !default;
 @function memo-get($module, $key) {
   $module: "#{$module}";
   $key: "#{$key}";
-  @return map-get-deep($Memoization-Table, $module, $key);
+  $private-sassy-maps-supress-warnings: true !global;
+  $result: map-get-deep($Memoization-Table, $module, $key);
+  $private-sassy-maps-supress-warnings: false !global;
+  @return $result;
 }
