@@ -2,7 +2,8 @@
   "extension": {
     "sass": [
       "_sassy-maps.scss",
-      "sassy-maps/**/*"
+      "sassy-maps/**/*",
+      "_memo.scss"
     ],
     "images": [
       "**"
