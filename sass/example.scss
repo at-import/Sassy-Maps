@@ -26,5 +26,21 @@ $map: map-set-deep($map, ('key4' 'nine' 'eight'), 'seven');
 
 @import "memo";
 
+$memo-exists: function-exists(memo-get) and function-exists(memo-set);
+
+@function percentage($target, $context) {
+  $result: memo-get(percentage, $target $context);
+
+  @if not ($memo-exists and $result != null) {
+    $result: $target / $context * 100%;
+    $holder: memo-set(percentage, $target $context, $result);
+  }
+
+  @return $result;
+}
+
+$half: percentage(20px, 40px);
+$half-again: percentage(20px, 40px);
+
 @debug $Memoization-Table;
 @debug memo-get(singularity, 2 .75 split);
