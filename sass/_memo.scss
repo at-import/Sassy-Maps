@@ -1,6 +1,6 @@
 @import "sassy-maps";
 
-$Memoization-Table: ();
+$Memoization-Table: () !default;
 
 //////////////////////////////
 // Memoization Set
@@ -9,9 +9,7 @@ $Memoization-Table: ();
   $module: "#{$module}";
   $key: "#{$key}";
 
-  $map: $module $key;
-
-  $Memoization-Table: map-set-deep($Memoization-Table, $map, $value) !global;
+  $Memoization-Table: map-set-deep($Memoization-Table, ($module $key), $value) !global;
 
   @return true;
 }

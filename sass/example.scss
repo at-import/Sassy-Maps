@@ -22,6 +22,8 @@ $map: map-set-deep($map, ('key4' 'nine' 'eight'), 'seven');
 @import "memo";
 
 @include memo-set(singularity, 2 .75 split, 50%);
-@include memo-set(singularity, 2 .75 split, 75%);
+@include memo-set(singularity, 2 .5 split, 75%);
 
+
+@debug $Memoization-Table;
 @debug memo-get(singularity, 2 .75 split);
