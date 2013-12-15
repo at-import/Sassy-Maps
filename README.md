@@ -8,6 +8,8 @@ Sassy Maps adds a variety of functions aimed at helping you work with Sass 3.3 m
 2. [Installation](#installation)
 3. [Using Sassy Maps](#using-sassy-maps)
 4. [Functions](#functions)
+5. [Optional Modules](#optional-modules)
+	* [Memo](#memo)
 
 ## Requirements
 
@@ -59,3 +61,39 @@ Then, add the following to your Sass file towards the top:
 * `map-set($map, $key, $value)` - Returns a map that has the `$key` in `$map` set to the to given `$value`.
 * `map-set-deep($map, $keys, $value)` - Returns a map that has the `$key` in `$map` set to the given `$value`. `$key` should be single-depth list of keys, for instance `map-set-deep($map, ('foo' 'bar' 'baz'), "Hello World")`.
 * `map-to-string($map)` - Returns a string representation of the given `$map`.
+
+
+## Optional Modules
+
+Sassy Maps comes with optional modules that extend upon the base functionality of Sassy Maps to provide additional map-based functionality. The following are optional modules available with Sassy Maps:
+
+* [Memo](#memo)
+
+### Memo
+
+Memo is a [Memoization](http://en.wikipedia.org/wiki/Memoization) framework for Sass. Designed with framework developers in mind, it makes it easy to store and retrieve the output of functions quickly and easily without needing to run the function again. For complex functions this should greatly speed up overall compilation time for repeat function calls with identical input.
+
+To use Memo, simply include `@import "memo";` and you're good to go (normal [Sassy Maps installation](#installation) still applies). Memo comes with two functions:
+
+* `memo-set($module, $key, $value)` - Sets a memoization `$key` to the given `$value` for the prescribed `$module` (framework). The function will return `true`. Also available as a mixin (`@include memo-set($module, $key, $value)`).
+* `memo-get($module, $key)` - Returns the value of the memoization `$key` for the prescribed `$module`.
+
+Using Memo is fairly simple, just check to see if there is a memoization value for your key (and it's not `null`); if there is, return that, if not, run through the function, set the memoization, and return that result. The following example stores whether Memo is available in a variable and uses the function name as the memoization module, but if building a framework such as [Breakpoint](http://github.com/team-sass/breakpoint), that framework should be the name of the memoization module.
+
+```scss
+$memo-exists: function-exists(memo-get) and function-exists(memo-set);
+
+@function percentage($target, $context) {
+  $result: memo-get(percentage, $target $context);
+
+  @if not ($memo-exists and $result != null) {
+    $result: $target / $context * 100%;
+    $holder: memo-set(percentage, $target $context, $result);
+  }
+
+  @return $result;
+}
+
+$half: percentage(20px, 40px); // No memoization exists, will run through the function
+$half-again: percentage(20px, 40px); // Memoization exists, will just return that result
+```
