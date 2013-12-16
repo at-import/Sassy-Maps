@@ -1,4 +1,4 @@
-# Sassy Maps
+# Sassy Maps [![Gem Version](https://badge.fury.io/rb/sassy-maps.png)](http://badge.fury.io/rb/sassy-maps)
 
 Sassy Maps adds a variety of functions aimed at helping you work with Sass 3.3 maps much easier.
 
