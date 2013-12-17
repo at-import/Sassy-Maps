@@ -84,11 +84,24 @@ Using Memo is fairly simple, just check to see if there is a memoization value f
 $memo-exists: function-exists(memo-get) and function-exists(memo-set);
 
 @function percentage($target, $context) {
-  $result: memo-get(percentage, $target $context);
+  $run: true;
+  $result: ();
+  
+  @if $memo-exists {
+    $result: memo-get(percentage, $target $context);
+    
+    @if $result != null {
+      $run: false;
+    }
+  }
 
-  @if not ($memo-exists and $result != null) {
+  
+  @if not $memo-exists or $run {
     $result: $target / $context * 100%;
-    $holder: memo-set(percentage, $target $context, $result);
+    
+    @if $memo-exists {
+      $holder: memo-set(percentage, $target $context, $result);
+    }
   }
 
   @return $result;
