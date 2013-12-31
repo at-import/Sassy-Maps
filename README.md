@@ -81,27 +81,21 @@ To use Memo, simply include `@import "memo";` and you're good to go (normal [Sas
 Using Memo is fairly simple, just check to see if there is a memoization value for your key (and it's not `null`); if there is, return that, if not, run through the function, set the memoization, and return that result. The following example stores whether Memo is available in a variable and uses the function name as the memoization module, but if building a framework such as [Breakpoint](http://github.com/team-sass/breakpoint), that framework should be the name of the memoization module.
 
 ```scss
-$memo-exists: function-exists(memo-get) and function-exists(memo-set);
+$Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
 
 @function percentage($target, $context) {
-  $run: true;
-  $result: ();
-  
-  @if $memo-exists {
+  @if $Memo-Exists {
     $result: memo-get(percentage, $target $context);
     
     @if $result != null {
-      $run: false;
+      @return $result;
     }
   }
-
   
-  @if not $memo-exists or $run {
-    $result: $target / $context * 100%;
+  $result: $target / $context * 100%;
     
-    @if $memo-exists {
-      $holder: memo-set(percentage, $target $context, $result);
-    }
+  @if $Memo-Exists {
+    $holder: memo-set(percentage, $target $context, $result);
   }
 
   @return $result;
