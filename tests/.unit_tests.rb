@@ -1,5 +1,3 @@
-# Navigator | Copyright 2013 Team Sass | MIT License | https://github.com/Team-Sass/navigator
-
 require 'compass'
 require 'compass/exec'
 require 'test/unit'
@@ -36,22 +34,21 @@ class TestCompassOutput < Test::Unit::TestCase
       Compass.compiler.compile sass_file, test_file_pwd  # Raises exception upon error
 
       begin
-        # Assert that our test output matches our control output
-        passed = assert FileUtils.compare_file(test_file_pwd, control_file_pwd), "Compiled output for #{File.basename(sass_file)} does not match control output!".red
+	# Assert that our test output matches our control output
+	passed = assert FileUtils.compare_file(test_file_pwd, control_file_pwd), "Compiled output for #{File.basename(sass_file)} does not match control output!".red
       ensure
-        # If there is a failure, generate a diff of the files and put it with the compiled file
-        if !passed
-          test_file = File.open(test_file_pwd).read;
-          control_file = File.open(control_file_pwd).read;
-          diff_pwd = "#{Dir.pwd}/output/#{relative_pwd}.diff"
-          diff_content = Diffy::Diff.new(control_file, test_file, :include_diff_info => true)
+	# If there is a failure, generate a diff of the files and put it with the compiled file
+	if !passed
+	  test_file = File.open(test_file_pwd).read;
+	  control_file = File.open(control_file_pwd).read;
+	  diff_pwd = "#{Dir.pwd}/output/#{relative_pwd}.diff"
+	  diff_content = Diffy::Diff.new(control_file, test_file, :include_diff_info => true)
 
-          File.open(diff_pwd, 'w') { |f| f.write(diff_content.to_s(:text)) }
+	  File.open(diff_pwd, 'w') { |f| f.write(diff_content.to_s(:text)) }
 
-      	  puts "Control->Compiled diff output to ".yellow + " tests/output/#{relative_pwd}.diff ".colorize( :color => :blue, :background => :black)
-        end
+	  puts "Control->Compiled diff output to ".yellow + " tests/output/#{relative_pwd}.diff ".colorize( :color => :blue, :background => :black)
+	end
       end
     end
   end
 end
-

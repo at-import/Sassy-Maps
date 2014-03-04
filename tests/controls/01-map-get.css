@@ -1,0 +1,35 @@
+/**
+  * Map Get Deep
+**/
+.map {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+}
+
+.map-get-deep--single-valid {
+  _test: "map-get-deep($map, 'foo')";
+  _result: "bar";
+}
+.map-get-deep--single-invalid {
+  _test: "map-get-deep($map, 'bar')";
+  _result: null;
+}
+.map-get-deep--first-valid {
+  _test: "map-get-deep($map, 'baz', 'jedi')";
+  _result: ("vader": red, "luke": green);
+}
+.map-get-deep--first-invalid {
+  _test: "map-get-deep($map, 'baz', 'waldo')";
+  _result: null;
+}
+.map-get-deep--second-valid {
+  _test: "map-get-deep($map, 'baz', 'jedi', 'luke')";
+  _result: green;
+}
+.map-get-deep--second-invalid {
+  _test: "map-get-deep($map, 'baz', 'jedi', 'chewie')";
+  _result: null;
+}
+.map-get-deep--second-invalid {
+  _test: "map-get-deep($map, 'baz', 'waldo', 'luke')";
+  _result: null;
+}

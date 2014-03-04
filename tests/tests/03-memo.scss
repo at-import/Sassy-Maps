@@ -1,0 +1,44 @@
+@import "memo";
+
+/**
+  * Memo Mixin
+**/
+.memo--mixin {
+  &--new {
+    _memo-table: inspect($Memoization-Table);
+    _test: "@include memo-set(test, foo, bar)";
+    @include memo-set(test, foo, bar);
+    _get: "memo-get(test, foo)";
+    _result: memo-get(test, foo);
+    _memo-table: inspect($Memoization-Table);
+  }
+
+  &--existing {
+    _memo-table: inspect($Memoization-Table);
+    _test: "@include memo-set(test, foo, qux)";
+    @include memo-set(test, foo, qux);
+    _get: "memo-get(test, foo)";
+    _result: memo-get(test, foo);
+    _memo-table: inspect($Memoization-Table);
+  }
+}
+
+.memo--function {
+  &--new {
+    _memo-table: inspect($Memoization-Table);
+    _test: "$holder: memo-set(test, baz, waldo)";
+    $holder: memo-set(test, baz, waldo);
+    _get: "memo-get(test, baz)";
+    _result: memo-get(test, baz);
+    _memo-table: inspect($Memoization-Table);
+  }
+
+  &--existing {
+    _memo-table: inspect($Memoization-Table);
+    _test: "$holder: memo-set(test, baz, ('jedi': ('vader': red, 'luke': green)))";
+    $holder: memo-set(test, baz, ('jedi': ('vader': red, 'luke': green)));
+    _get: "memo-get(test, baz)";
+    _result: inspect(memo-get(test, baz));
+    _memo-table: inspect($Memoization-Table);
+  }
+}

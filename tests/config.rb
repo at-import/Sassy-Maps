@@ -1,4 +1,5 @@
 # Require any additional compass plugins here.
+add_import_path "../sass"
 
 # File system locations
 sass_dir              = 'tests'

@@ -1,0 +1,64 @@
+$private-sassy-maps-suppress-warnings: true;
+@import "sassy-maps";
+
+$map: (
+  "foo": "bar",
+  "baz": (
+    "qux": "waldo",
+    "jedi": (
+      "vader": red,
+      "luke": green
+    )
+  )
+);
+
+/**
+  * Map Set
+**/
+.map-set {
+
+  &--existing {
+    _map: inspect($map);
+    _test: "map-set($map, 'foo', 400)";
+    _result: inspect(map-set($map, 'foo', 400));
+  }
+
+  &--new {
+    _map: inspect($map);
+    _test: "map-set($map, 'planets', ('Earth', 'Mars'))";
+    _result: inspect(map-set($map, 'planets', ('Earth', 'Mars')));
+  }
+
+}
+
+/**
+  * Map Set Deep
+**/
+.map-set-deep {
+
+  &--first {
+    &-existing {
+      _map: inspect($map);
+      _test: "map-set-deep($map, 'baz' 'jedi', ('windu': purple))";
+      _result: inspect(map-set-deep($map, 'baz' 'jedi', ('windu': purple)));
+    }
+    &-new {
+      _map: inspect($map);
+      _test: "map-set-deep($map, 'baz' 'Carmen', 'Sandiego')";
+      _result: inspect(map-set-deep($map, 'baz' 'Carmen', 'Sandiego'));
+    }
+  }
+
+  &--second {
+    &-existing {
+      _map: inspect($map);
+      _test: "map-set-deep($map, 'baz' 'jedi' 'luke', ('color': green))";
+      _result: inspect(map-set-deep($map, 'baz' 'jedi' 'luke', ('color': green)));
+    }
+    &-new {
+      _map: inspect($map);
+      _test: "map-set-deep($map, 'baz' 'jedi' 'windu', purple)";
+      _result: inspect(map-set-deep($map, 'baz' 'jedi' 'windu', purple));
+    }
+  }
+}

@@ -1,0 +1,32 @@
+/**
+  * Memo Mixin
+**/
+.memo--mixin--new {
+  _memo-table: ();
+  _test: "@include memo-set(test, foo, bar)";
+  _get: "memo-get(test, foo)";
+  _result: bar;
+  _memo-table: ("test": (("foo": bar)));
+}
+.memo--mixin--existing {
+  _memo-table: ("test": (("foo": bar)));
+  _test: "@include memo-set(test, foo, qux)";
+  _get: "memo-get(test, foo)";
+  _result: qux;
+  _memo-table: ("test": (("foo": qux)));
+}
+
+.memo--function--new {
+  _memo-table: ("test": (("foo": qux)));
+  _test: "$holder: memo-set(test, baz, waldo)";
+  _get: "memo-get(test, baz)";
+  _result: waldo;
+  _memo-table: ("test": (("foo": qux, "baz": waldo)));
+}
+.memo--function--existing {
+  _memo-table: ("test": (("foo": qux, "baz": waldo)));
+  _test: "$holder: memo-set(test, baz, ('jedi': ('vader': red, 'luke': green)))";
+  _get: "memo-get(test, baz)";
+  _result: ("jedi": (("vader": red, "luke": green)));
+  _memo-table: ("test": (("foo": qux, "baz": (("jedi": (("vader": red, "luke": green)))))));
+}

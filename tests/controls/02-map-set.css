@@ -1,0 +1,37 @@
+/**
+  * Map Set
+**/
+.map-set--existing {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set($map, 'foo', 400)";
+  _result: ("foo": 400, "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+}
+.map-set--new {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set($map, 'planets', ('Earth', 'Mars'))";
+  _result: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))), "planets": ("Earth", "Mars"));
+}
+
+/**
+  * Map Set Deep
+**/
+.map-set-deep--first-existing {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set-deep($map, 'baz' 'jedi', ('windu': purple))";
+  _result: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("windu": purple)))));
+}
+.map-set-deep--first-new {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set-deep($map, 'baz' 'Carmen', 'Sandiego')";
+  _result: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)), "Carmen": "Sandiego")));
+}
+.map-set-deep--second-existing {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set-deep($map, 'baz' 'jedi' 'luke', ('color': green))";
+  _result: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": (("color": green)))))));
+}
+.map-set-deep--second-new {
+  _map: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green)))));
+  _test: "map-set-deep($map, 'baz' 'jedi' 'windu', purple)";
+  _result: ("foo": "bar", "baz": (("qux": "waldo", "jedi": (("vader": red, "luke": green, "windu": purple)))));
+}

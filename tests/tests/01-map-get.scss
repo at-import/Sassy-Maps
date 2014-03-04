@@ -1,0 +1,61 @@
+$private-sassy-maps-suppress-warnings: true;
+@import "sassy-maps";
+
+$map: (
+  "foo": "bar",
+  "baz": (
+    "qux": "waldo",
+    "jedi": (
+      "vader": red,
+      "luke": green
+    )
+  )
+);
+
+/**
+  * Map Get Deep
+**/
+.map {
+  _map: inspect($map);
+}
+
+.map-get-deep {
+
+  &--single {
+    &-valid {
+      _test: "map-get-deep($map, 'foo')";
+      _result: inspect(map-get-deep($map, 'foo'));
+    }
+
+    &-invalid {
+      _test: "map-get-deep($map, 'bar')";
+      _result: inspect(map-get-deep($map, 'bar'));
+    }
+  }
+
+  &--first {
+    &-valid {
+      _test: "map-get-deep($map, 'baz', 'jedi')";
+      _result: inspect(map-get-deep($map, 'baz', 'jedi'));
+    }
+    &-invalid {
+      _test: "map-get-deep($map, 'baz', 'waldo')";
+      _result: inspect(map-get-deep($map, 'baz', 'waldo'));
+    }
+  }
+
+  &--second {
+    &-valid {
+      _test: "map-get-deep($map, 'baz', 'jedi', 'luke')";
+      _result: inspect(map-get-deep($map, 'baz', 'jedi', 'luke'));
+    }
+    &-invalid {
+      _test: "map-get-deep($map, 'baz', 'jedi', 'chewie')";
+      _result: inspect(map-get-deep($map, 'baz', 'jedi', 'chewie'));
+    }
+    &-invalid {
+      _test: "map-get-deep($map, 'baz', 'waldo', 'luke')";
+      _result: inspect(map-get-deep($map, 'baz', 'jedi', 'chewie'));
+    }
+  }
+}
