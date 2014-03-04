@@ -11,7 +11,7 @@
 }
 
 @function map-set-deep($map, $keys, $value) {
-  $private-sassy-maps-supress-warnings: true !global;
+  $private-sassy-maps-suppress-warnings: true !global;
   $length: length($keys);
   $get-keys: ();
   $map-level: ();
@@ -46,6 +46,6 @@
   }
   $map: map-merge($map, $merge);
 
-  $private-sassy-maps-supress-warnings: false !global;
+  $private-sassy-maps-suppress-warnings: false !global;
   @return $map;
 }
