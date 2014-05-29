@@ -2,11 +2,6 @@ node_modules
 /components
 .www
 .sass-cache
-.compass/lib
-.compass/stylesheets
-.compass/templates
-.compass/sassy-maps.gemspec
-Gemfile
 Gemfile.lock
 export
 *.gem

@@ -1,6 +1,6 @@
 {
   "name": "sassy-maps",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "authors": [
     "Sam Richard <snugug@gmail.com>"
   ],
@@ -11,13 +11,8 @@
     "node_modules",
     "bower_components",
     "components",
-    "test",
     "tests",
     "Gemfile",
-    "Gemfile.lock",
-    "Gruntfile.js",
-    "examples",
-    "sass/example.scss",
     "images",
     "fonts",
     "js",
