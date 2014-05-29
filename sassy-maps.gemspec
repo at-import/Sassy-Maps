@@ -1,5 +1,5 @@
 $:.push File.expand_path('../lib', __FILE__)
-require 'sassy-maps'
+require 'sassy-maps/version'
 
 Gem::Specification.new do |s|
   s.name        = 'sassy-maps'

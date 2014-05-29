@@ -1,3 +1,4 @@
+require 'sassy-maps/version'
 require 'sass'
 
 sassy_maps_path = File.expand_path('../../sass', __FILE__)
@@ -12,6 +13,4 @@ else
 end
 
 module SassyMaps
-  VERSION = "0.3.2"
-  DATE = "2014-03-04"
 end
