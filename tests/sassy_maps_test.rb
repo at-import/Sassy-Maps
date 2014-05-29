@@ -27,7 +27,7 @@ module SassyMaps
     end
 
     def render_sass_file(file_name)
-      options = {syntax: :scss, cache: false, style: :expanded}
+      options = {:syntax => :scss, :cache => false, :style => :expanded}
       template = File.read(tests_sass_file(file_name))
       Sass::Engine.new(template, options).render
     end
