@@ -12,9 +12,9 @@ Sassy Maps adds a variety of functions aimed at helping you work with Sass 3.3 m
 
 ## Requirements
 
-Sassy Maps is a Sass extension, so you're going to need Sass installed. If you do not already have Sass installed, please read [Install Sass](http://sass-lang.com/install). Sassy Maps 0.3.x requires *Sass 3.3.0*or higher.
+Sassy Maps is a Sass extension, so you're going to need Sass installed. If you do not already have Sass installed, please read [Install Sass](http://sass-lang.com/install). Sassy Maps 0.3.x requires *Sass 3.3.0* or higher.
 
-**It is HIGHLY RECOMMENDED that you run all Sass commands through [Bundler](http://bundler.io/)**
+**It is HIGHLY RECOMMENDED that you run all Sass (or Compass if using it) commands through [Bundler](http://bundler.io/)**
 
 If the compiler you are using is not compatible with the above minimum versions, it will not compile correctly.
 
