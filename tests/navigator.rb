@@ -1,3 +1,4 @@
+require 'colorize'
 require 'term/ansicolor'
 require 'minitest/reporters'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
@@ -54,6 +55,7 @@ module Navigator
           control_css = render_sass_file(file_name)
           control_file = Navigator.tests_control_file(file_name)
           File.open(control_file,'w') { |f| f.write(control_css) }
+          puts "Rendered->#{control_file}".colorize(:light_cyan)
         end
       end
 
