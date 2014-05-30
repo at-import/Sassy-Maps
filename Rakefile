@@ -8,3 +8,15 @@ Rake::TestTask.new   do |t|
 end
 
 task :default => :test
+
+desc 'Re-render all test Sass files to new control files.'
+task 'render' => ['environment'] do
+  require File.expand_path('../tests/navigator', __FILE__)
+  Navigator::Renderer.render_controls
+end
+
+task 'environment' do
+  lib = File.expand_path('../lib', __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require 'sassy-maps'
+end
