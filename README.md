@@ -37,7 +37,7 @@ You can also install Sassy Maps through [Bower](http://bower.io/) as it has no R
 bower install sassy-maps --save-dev
 ```
 
-*BE AWARE* that while you can install Sassy Maps through Bower, Sassy Maps still only works with Sass compilers that have full compatibility with Sass 3.3.x and greater.
+*BE AWARE* that while you can install Sassy Maps through Bower, Sassy Maps still only works with Sass compilers that have full compatibility with Sass 3.3.x and greater. If using Compass, you are also going to need to add the folder using Compass's [`add_import_path`](http://compass-style.org/help/tutorials/configuration-reference/) config option instead of the standard `require`.
 
 ## Using Sassy Maps
 
