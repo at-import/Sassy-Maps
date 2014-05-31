@@ -9,7 +9,6 @@ module Navigator
   def self.create_tests(test_klass)
     test_names.each do |file_name|
       tn = file_name.tr '/', '_'
-      test_klass.send :i_suck_and_my_tests_are_order_dependent!
       test_klass.instance_eval do
         define_method(:"test_#{tn}") { assert_rendered_file(file_name) }
       end
