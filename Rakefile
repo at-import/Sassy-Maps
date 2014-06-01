@@ -4,7 +4,8 @@ require 'rake/testtask'
 Rake::TestTask.new   do |t|
   t.libs = ['lib','tests']
   t.test_files = Dir.glob('tests/**/*_test.rb').sort
-  t.verbose = true
+  t.verbose = false
+  t.options = "- --tapy | tapout navigator --require tapout/reporters/navigator_reporter"
 end
 
 task :default => :test

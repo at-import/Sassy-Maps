@@ -1,8 +1,8 @@
 require 'colorize'
 require 'term/ansicolor'
-require 'minitest/reporters'
-Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
-Minitest::Reporters::BaseReporter.class_eval { def filter_backtrace(backtrace) ; [] ; end } # Super clean diffs.
+require 'minitap'
+require 'tapout'
+Minitest.reporter = Minitap::TapY
 
 module Navigator
 
@@ -95,10 +95,10 @@ module Navigator
       diff_file = Navigator.tests_output(file_name)
       diff_data = diff(control_sass, rendered_sass)
       File.open(diff_file,'w') { |f| f.write(diff_data) }
-      msg = "\n"
+      msg = ""
       msg << "Control->Compiled diff output to".colorize(:light_yellow)
       msg << " #{diff_file}\n".colorize(:light_cyan)
-      msg <<  `cdiff #{diff_file}`
+      msg <<  `cdiff #{diff_file}`.chomp
       flunk(msg)
     end
 

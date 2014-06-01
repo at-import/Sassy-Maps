@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency('bundler')
   s.add_development_dependency('rake')
   s.add_development_dependency('minitest')
-  s.add_development_dependency('minitest-reporters')
+  s.add_development_dependency('minitap')
+  s.add_development_dependency('tapout')
   s.add_development_dependency('term-ansicolor')
   s.add_development_dependency('colorize')
 end
