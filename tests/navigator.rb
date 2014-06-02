@@ -25,12 +25,21 @@ module Navigator
     @tests_root ||= File.expand_path File.join(File.dirname(__FILE__))
   end
 
+  def self.tests_output_dir
+    @tests_output_dir ||= File.join Navigator.tests_root, 'output'
+  end
+
+  def self.tests_output_dir_clean!
+    Dir["#{Navigator.tests_output_dir}/**/*.{diff}"].each { |f| File.delete(f) }
+  end
+
   def self.tests_sass_file(file_name)
     File.join Navigator.tests_root, 'tests', "#{file_name}.scss"
   end
 
   def self.tests_output(file_name)
     file = File.join Navigator.tests_root, 'output', "#{file_name}.css.diff"
+    # file = File.join Navigator.tests_output_dir, "#{file_name}.css.diff"
     FileUtils.mkdir_p(File.dirname(file))
     file
   end
@@ -81,6 +90,7 @@ module Navigator
 
     def self.included(base)
       Navigator.create_tests(base)
+      Navigator.tests_output_dir_clean!
     end
 
     private
