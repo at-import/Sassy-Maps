@@ -6,4 +6,4 @@ Gemfile.lock
 export
 *.gem
 /vendor
-/tests/output/*.diff
+/tests/output/**/*.diff
