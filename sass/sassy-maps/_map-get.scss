@@ -20,11 +20,11 @@ $private-sassy-maps-suppress-warnings: false !default;
         $get: map-get($get, nth($keys, $i));
 
         @if $get == null {
-          @return map-get-deep-warning($warn, $get);
+          @return map-get-deep-warning($warn, $get, nth($keys, $i));
         }
       }
       @else {
-        @return map-get-deep-warning($warn, $get);
+        @return map-get-deep-warning($warn, $get, nth($keys, $i));
       }
     }
   }
@@ -37,13 +37,13 @@ $private-sassy-maps-suppress-warnings: false !default;
 //
 // Displays a warning if the retrieved value is `null`
 //////////////////////////////
-@function map-get-deep-warning($warn, $get) {
+@function map-get-deep-warning($warn, $get, $key) {
   @if not $private-sassy-maps-suppress-warnings {
     @if $get == null {
       @warn "Map has no value for key search `#{$warn}`";
     }
     @else if type-of($get) != 'map' {
-      @warn "Non-map value found for key search `#{$warn}`, cannot search for key `#{nth($keys, $i)}`";
+      @warn "Non-map value found for key search `#{$warn}`, cannot search for key `#{$key}`";
     }
   }
   @return null;
